@@ -1,0 +1,5 @@
+<-------------FRONTEND--------------->
+1.  npm create vite@latest
+2.  npm install
+3.  install packages npm i react-router-dom
+4. create folder components pages context 
