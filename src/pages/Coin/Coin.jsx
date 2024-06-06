@@ -29,11 +29,16 @@ const Coin = () => {
       method: 'GET',
       headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-AAyPA1xMtySig63zimqdNnDk'}
     };
+    try {
+      const response=await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10&interval=daily`, options)
+     const data=await response.json();
+      setHistoricalData(data);
+    } catch (error) {
+      console.log(error)
+      
+    }
     
-    fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10&interval=daily`, options)
-      .then(response => response.json())
-      .then(response => setHistoricalData(response))
-      .catch(err => console.error(err));
+      
   }
 
   useEffect(() => {

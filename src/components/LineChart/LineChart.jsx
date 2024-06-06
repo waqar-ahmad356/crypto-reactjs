@@ -9,7 +9,7 @@ const LineChart = ({historicaldata}) => {
       let datacopy=[["Date","Prices"]];
       if (historicaldata.prices){
         historicaldata.prices.map((item)=>{
-          datacopy.push([`${new Date(item[0])}`,item[1]])
+          datacopy.push([`${new Date(item[0]).toLocaleDateString().slice(0,-5)}`,item[1]])
         })
         console.log(datacopy)
         setData(datacopy)
